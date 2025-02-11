@@ -90,13 +90,6 @@ export const updateAppointment = async (req, res) => {
 
       const appointment = await Appointment.findByIdAndUpdate(uid, data, { new: true }).populate("pet").populate("user");
 
-      if (!appointment) {
-          return res.status(404).json({
-              success: false,
-              msg: "No se encontró la cita especificada",
-          });
-      }
-
       res.status(200).json({
           success: true,
           msg: "La cita ha sido actualizada exitosamente",
@@ -111,18 +104,12 @@ export const updateAppointment = async (req, res) => {
   }
 };
 
+
 export const cancelAppointment = async(req,res) =>{
   try{
     const { uid } = req.params;
     
     const cancelAppointment = await Appointment.findByIdAndUpdate( uid, {status: "CANCELED"}, {new: true}).populate("pet").populate("user");
-
-    if(!cancelAppointment){
-      return res.status(404).json({
-        success: false,
-        msg: "No se pudo encontrar la cita para cancelarla",
-      });
-    }
 
     res.status(200).json({
       success:true,
@@ -137,3 +124,4 @@ export const cancelAppointment = async(req,res) =>{
     });
   }
 };
+

@@ -249,7 +249,26 @@
 						"url": "http://127.0.0.1:3001/adoptionSystem/v1/appointment/createAppointment"
 					},
 					"response": []
+				},
+				{
+					"name": "Listar citas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3001/adoptionSystem/v1/appointment/getAppointment"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar cita",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "http://127.0.0.1:3001//adoptionSystem/v1/appointment/cancelAppointment/679cedc00c50f098afb74105"
+					},
+					"response": []
 				}
+
 			]
 		}
 	]
